@@ -199,7 +199,7 @@ function RequestCards(props) {
                 text="dark"
                 className="m-2 p-4 text-center">
                     <Card.Header className="text-capitalize">
-                        <Link href={"/user/" + otherUser.username}>
+                        <Link href={"/" + otherUser.username}>
                             {otherUser.profile.fullname}
                         </Link> 
                     </Card.Header>
