@@ -51,7 +51,7 @@ function SkillCards(props) {
           className="mt-2 mb-4 p-1 text-center">
           <div className="row">
             <span className="text-left col-8 mt-2">
-             Endorsements:&nbsp; 
+             Skill Level:&nbsp; 
              <OverlayTrigger
                 placement="right"
                 overlay={

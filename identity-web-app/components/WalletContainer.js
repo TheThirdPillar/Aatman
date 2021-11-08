@@ -1,13 +1,26 @@
 import Link from 'next/link'
-
+import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import CardDeck from 'react-bootstrap/CardDeck'
 import Table from 'react-bootstrap/Table'
-import Badge from 'react-bootstrap/Badge'
+
+import ExternalAccountCard from './ExternalAccountCard'
+
+import styles from '../styles/Dashboard.module.css'
 
 function WalletContainer(props) {
   return (
     <>
       <Col xs={12} lg={9}>
+        <Row>
+          <Col xs={12} lg={12}>
+            <CardDeck className={styles.externalAccountSection}>
+              <ExternalAccountCard title="Bank Account" />
+              <ExternalAccountCard title="Bitcoin Address" />
+              <ExternalAccountCard title="Ethereum Address" />
+            </CardDeck>
+          </Col>
+        </Row>
         <Table hover responsive>
           <thead>
             <tr>

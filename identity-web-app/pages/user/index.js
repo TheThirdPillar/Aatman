@@ -143,9 +143,9 @@ export default function UserDashboard() {
                 ? <VideoSection url={videoURL} showVideo={showVideo} closeVideo={() => handleVideoClose()} />
                 : ""
         }
-        <WellBeingSection title="Well-being Score" validation={wellBeingValidation} score={overallScore} stacks={productivityStacks} handleModalShow={(form) => handleModalShow(form)} handleValidationRequest={(wellBeingValidation) => handleValidationRequest(wellBeingValidation)} isPublic={false} />
-        <SkillSection title="Skills" skills={userData?.skillRecords} handleModalShow={(form) => handleModalShow(form)} isPublic={false} />
-        <SoftskillSection title="Softskills" softskills={softskills} handleModalShow={(form) => handleModalShow(form)} isPublic={false} />
+        <WellBeingSection title="Well-being/Productivity Score" validation={wellBeingValidation} score={overallScore} stacks={productivityStacks} handleModalShow={(form) => handleModalShow(form)} handleValidationRequest={(wellBeingValidation) => handleValidationRequest(wellBeingValidation)} isPublic={false} />
+        <SkillSection title="Hard Skills" skills={userData?.skillRecords} handleModalShow={(form) => handleModalShow(form)} isPublic={false} />
+        <SoftskillSection title="Soft Skills" softskills={softskills} handleModalShow={(form) => handleModalShow(form)} isPublic={false} />
         <VirtueSection title="Virtues" virtues={virtues} isPublic={false} handleModalShow={(form) => handleModalShow(form)} />
         <CommunitySection title="Communities" communities={communities} isPublic={false} handleModalShow={(form) => handleModalShow(form)} />
         <RecordSection title="Education" handleModalShow={(form) => handleModalShow(form)} records={userData?.educationRecords} isPublic={false} />

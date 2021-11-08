@@ -120,7 +120,7 @@ export default function WellBeingCard (props) {
                                                 </Card.Text>
                                                 <ProgressBar now={calculateScore(physiologyStack?.stackRatings)} label={calculateScore(physiologyStack?.stackRatings) + "%"} variant="warning" className="mb-1" />
                                                 <Card.Text className="m-0 mt-2">
-                                                    Energy
+                                                    Emotions
                                                 </Card.Text>
                                                 <ProgressBar now={calculateScore(energyStack?.stackRatings)} label={calculateScore(energyStack?.stackRatings) + "%"} variant="warning" className="mb-1" />    
                                                 <Card.Text className="m-0 mt-2">
