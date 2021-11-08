@@ -103,9 +103,9 @@ export default function PublicProfile() {
                         ? <VideoSection url={videoURL} showVideo={showVideo} closeVideo={() => handleVideoClose()} />
                         : ""
                 }
-                <WellBeingSection title="Well-being Score" subtitle={userData.wellbeing?.validator} isPublic={true} />
-                <SkillSection title="Skills" skills={userData?.skillRecords} handleModalShow={(form) => handleModalShow(form)} isPublic={true} />
-                <SoftskillSection title="Softskills" softskills={userData?.softskills} isPublic={true} />
+                <WellBeingSection title="Well-being/Productivity Score" subtitle={userData.wellbeing?.validator} isPublic={true} />
+                <SkillSection title="Hard Skills" skills={userData?.skillRecords} handleModalShow={(form) => handleModalShow(form)} isPublic={true} />
+                <SoftskillSection title="Soft Skills" softskills={userData?.softskills} isPublic={true} />
                 <VirtueSection title="Virtues" virtues={userData?.virtues} isPublic={true} />
                 <CommunitySection title="Community" communities={userData?.communities} isPublic={true} />
                 <RecordSection title="Education" handleModalShow={(form) => handleModalShow(form)} records={userData?.educationRecords} isPublic={true} />
