@@ -16,12 +16,15 @@ Features include :
     * [] Request Access to verified Documents and Records from other users.
     * [] Manage Access Requests - Accept/Decline/Sent/Revoke/Cancel
     * [] A passbook for SkillTokens - Balance/Transactions
+    * [] Well-being score
 
 ## Documentation
 
     ### Coming Soon
 
 ## Proposals
+
+    * [] Update proposal links here.
 
 ## Contributions
 

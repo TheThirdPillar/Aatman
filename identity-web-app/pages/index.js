@@ -65,16 +65,16 @@ export default function Home() {
             <CardGroup>
               <ProcessCards
                 title={<FaFileAlt />}
-                text="Choose one or more document to certify a claim, like your education or identity." />
+                text="Update documents to certify a claim, like your education or identity." />
               <ProcessCards
                 title={<FaCloudUploadAlt />}
-                text="The document is then encrypted using Shield and uploaded to IPFS for eternity." />
+                text="The documents are then encrypted using Shield and uploaded to IPFS for eternity." />
               <ProcessCards
                 title={<FaStamp />}
-                text="A verification request is sent to the concerned organization or community, who then digitally sign it." />
+                text="A verification request is sent to the concerned organization or community, who then digitally sign and verify it." />
               <ProcessCards
                 title={<FaThumbsUp />}
-                text="Other users can then request the verified information, while you are in control." />
+                text="Other users can then request the verified information, and you are in control, always." />
               <ProcessCards
                 title={<FaCoins />}
                 text="Every time you open your information to someone, you are paid in fiat currency." />
