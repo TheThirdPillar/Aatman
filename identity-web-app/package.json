@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
-    "export": "npm run build && next export -o _static",
     "start:local": "BROWSER='google chrome' BROWSER_ARGS='--remote-debugging-port=922"
   },
   "dependencies": {
