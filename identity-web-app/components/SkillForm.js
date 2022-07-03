@@ -24,6 +24,8 @@ function SkillForm(props) {
         skillDetails: [],
         endorsements: [],
         skillLevel: 0,
+        proofOfWork: '',
+        personalEndorsement: '',
         ...props.formData
     })
 
@@ -125,6 +127,12 @@ function SkillForm(props) {
                             </a>
                         ))}
                     </Form.Text>
+                </Form.Group>
+                <Form.Group controlId="proofOfWork">
+                    <Form.Control type='url' placeholder='Enter your ROAM Skill URL' name="proofOfWork" value={inputFields.proofOfWork} onChange={(e) => handleUpdate(e.target.name, e.target.value)} required />
+                </Form.Group>
+                <Form.Group controlId="persoalEndorsement">
+                    <Form.Control type='url' placeholder='Add youtube link for self endorsing skill' name="personalEndorsement" value={inputFields.personalEndorsement} onChange={(e) => handleUpdate(e.target.name, e.target.value)} required />
                 </Form.Group>
                 <Form.Group as={Row}>
                     <Col className="text-right">

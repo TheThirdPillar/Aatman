@@ -7,40 +7,12 @@ import CardDropdown from './CardDropdown'
 
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
-import faker from 'faker'
+import { AiFillYoutube } from 'react-icons/ai'
 
 function SkillCards(props) {
-  // TODO: This is a temporary demo for endorsements
-  // If there are no endorsements, show randomly generated data.
+
   let totalEndorsements = props.skill.endorsements.length
   let endorsements = []
-  if (totalEndorsements == 0) {
-    totalEndorsements = Math.floor(Math.random() * 10)
-    // Generate equivalent number of transactions to show in overlay
-    for (let i = 0; i < totalEndorsements; i++) {
-      let endorsement = {
-        transactionId: faker.datatype.uuid(),
-        transactionDate: faker.date.recent()
-      }
-      endorsements.push(endorsement)
-    }
-    console.log(endorsements)
-  }
-
-  // This is the worst piece of code I have ever written
-  const endorsementsToString = (endorsements) => {
-    let endorsementsToString = ''
-    endorsements.forEach(endorsement => {
-      endorsementsToString += endorsement.transactionId
-      endorsementsToString += " "
-      endorsementsToString += "on"
-      endorsementsToString += " "
-      endorsementsToString += endorsement.transactionDate.toLocaleDateString()
-      endorsementsToString += "\n"
-      endorsementsToString += "\n"
-    })
-    return endorsementsToString  
-  }
 
   return (
     <>
@@ -50,23 +22,49 @@ function SkillCards(props) {
           text="white"
           className="mt-2 mb-4 p-1 text-center">
           <div className="row">
-            <span className="text-left col-8 mt-2">
-             Skill Level:&nbsp; 
-             <OverlayTrigger
-                placement="right"
-                overlay={
-                  <Tooltip id='endorsement-tooltip'>
-                    {
-                      (totalEndorsements == 0)
-                        ? <strong> No endorsements </strong>
-                        : <strong>{endorsementsToString(endorsements)}</strong>
-                    } 
-                  </Tooltip>
-                }
-             >
-                <Badge pill variant="light">{totalEndorsements}</Badge>
-             </OverlayTrigger>
-            </span>
+            <div className="text-left col-8 mt-2">
+              <span className='m-2'>
+              LT:&nbsp; 
+                <OverlayTrigger
+                    placement="right"
+                    overlay={
+                      <Tooltip id='endorsement-tooltip'>
+                        {
+                          (totalEndorsements == 0)
+                            ? <strong> No validated POW, No Learning Tokens </strong>
+                            : <strong>{}</strong>
+                        } 
+                      </Tooltip>
+                    }
+                >
+                    <Badge pill variant="light">{totalEndorsements}</Badge>
+                </OverlayTrigger>
+              </span>
+              <span className='m-2'>
+              PT:&nbsp; 
+                <OverlayTrigger
+                    placement="right"
+                    overlay={
+                      <Tooltip id='endorsement-tooltip'>
+                        {
+                          (totalEndorsements == 0)
+                            ? <strong> No validated POW, No Perfomance Tokens </strong>
+                            : <strong>{}</strong>
+                        } 
+                      </Tooltip>
+                    }
+                >
+                    <Badge pill variant="light">{totalEndorsements}</Badge>
+                </OverlayTrigger>
+              </span>
+              <span className='m-2'>
+                  {
+                    (props.skill.data.personalEndorsement)
+                      ? <a href={props.skill.data.personalEndorsement} target="_blank" className={styles.cardLink}><AiFillYoutube size={24}/></a>
+                      : ''
+                  }
+              </span>
+            </div>
             <span className="text-right col-4">
              {
                (!props.isPublic) ?  <CardDropdown color="#ffffff" data={props.skill.data} handleEdit={props.handleEdit} handleDelete={() => props.handleDelete()} /> : <></>
@@ -87,6 +85,13 @@ function SkillCards(props) {
                 </Badge>
               )))}
             </Card.Text>
+            <Card.Link>
+              {
+                (props.skill.data.proofOfWork)
+                  ? <a href={props.skill.data.proofOfWork} target="_blank" className={styles.cardLink}>Proof of Work</a>
+                  : <a href="#" className={styles.cardLink}>No Proof Available</a>
+              }
+            </Card.Link>
           </Card.Body>
         </Card>
       </Col>
