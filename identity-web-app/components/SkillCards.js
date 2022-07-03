@@ -23,40 +23,11 @@ function SkillCards(props) {
           className="mt-2 mb-4 p-1 text-center">
           <div className="row">
             <div className="text-left col-8 mt-2">
-              <span className='m-2'>
-              LT:&nbsp; 
-                <OverlayTrigger
-                    placement="right"
-                    overlay={
-                      <Tooltip id='endorsement-tooltip'>
-                        {
-                          (totalEndorsements == 0)
-                            ? <strong> No validated POW, No Learning Tokens </strong>
-                            : <strong>{}</strong>
-                        } 
-                      </Tooltip>
-                    }
-                >
-                    <Badge pill variant="light">{totalEndorsements}</Badge>
-                </OverlayTrigger>
-              </span>
-              <span className='m-2'>
-              PT:&nbsp; 
-                <OverlayTrigger
-                    placement="right"
-                    overlay={
-                      <Tooltip id='endorsement-tooltip'>
-                        {
-                          (totalEndorsements == 0)
-                            ? <strong> No validated POW, No Perfomance Tokens </strong>
-                            : <strong>{}</strong>
-                        } 
-                      </Tooltip>
-                    }
-                >
-                    <Badge pill variant="light">{totalEndorsements}</Badge>
-                </OverlayTrigger>
-              </span>
+              <a href={props.skill.data.proofOfWork} target="_blank" className={styles.cardLink}>   
+                <span className='m-2'>
+                Skill Level:&nbsp;<Badge pill variant="light">{totalEndorsements}</Badge>
+                </span>
+              </a>
               <span className='m-2'>
                   {
                     (props.skill.data.personalEndorsement)
@@ -85,13 +56,6 @@ function SkillCards(props) {
                 </Badge>
               )))}
             </Card.Text>
-            <Card.Link>
-              {
-                (props.skill.data.proofOfWork)
-                  ? <a href={props.skill.data.proofOfWork} target="_blank" className={styles.cardLink}>Proof of Work</a>
-                  : <a href="#" className={styles.cardLink}>No Proof Available</a>
-              }
-            </Card.Link>
           </Card.Body>
         </Card>
       </Col>
