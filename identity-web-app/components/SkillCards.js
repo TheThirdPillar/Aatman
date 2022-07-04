@@ -25,7 +25,7 @@ function SkillCards(props) {
             <div className="text-left col-8 mt-2">
               <a href={props.skill.data.proofOfWork} target="_blank" className={styles.cardLink}>   
                 <span className='m-2'>
-                Skill Level:&nbsp;<Badge pill variant="light">{totalEndorsements}</Badge>
+                Skill Level:&nbsp;<Badge pill variant="light">{props.skill.data.skillLevel}</Badge>
                 </span>
               </a>
               <span className='m-2'>
