@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 
 import { domain } from '../config/config'
 
-function EnergyForm (props) {
+function EmotionsForm (props) {
 
     const [inputFields, setInputFields] = useState({
         q1: 0,
@@ -23,7 +23,7 @@ function EnergyForm (props) {
         if (hasChanged) {
 
             let formData = {
-                stackName: 'energy',
+                stackName: 'emotions',
                 stackRatings: inputFields
             }
             fetch(domain + '/application/listen/identity/handleProductivityStack', {
@@ -110,4 +110,4 @@ function EnergyForm (props) {
     )
 }
 
-export default EnergyForm
+export default EmotionsForm

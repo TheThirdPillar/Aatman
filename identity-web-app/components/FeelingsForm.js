@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 
 import { domain } from '../config/config'
 
-function FeelingForm (props) {
+function FeelingsForm (props) {
 
     const [inputFields, setInputFields] = useState({
         q1: 0,
@@ -23,7 +23,7 @@ function FeelingForm (props) {
         if (hasChanged) {
 
             let formData = {
-                stackName: 'feeling',
+                stackName: 'feelings',
                 stackRatings: inputFields
             }
             fetch(domain + '/application/listen/identity/handleProductivityStack', {
@@ -110,4 +110,4 @@ function FeelingForm (props) {
     )
 }
 
-export default FeelingForm
+export default FeelingsForm

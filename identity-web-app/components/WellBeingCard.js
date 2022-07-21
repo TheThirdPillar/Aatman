@@ -22,19 +22,19 @@ export default function WellBeingCard (props) {
     let physiologyStack = props.stacks?.find(stack => {
         return stack.stackName === 'physiology'
     })
-    let energyStack = props.stacks?.find(stack => {
-        return stack.stackName === 'energy'
+    let emotionsStack = props.stacks?.find(stack => {
+        return stack.stackName === 'emotions'
     })
-    let feelingStack = props.stacks?.find(stack => {
-        return stack.stackName === 'feeling'
+    let feelingsStack = props.stacks?.find(stack => {
+        return stack.stackName === 'feelings'
     })
-    let thinkingStack = props.stacks?.find(stack => {
+    let thoughtsStack = props.stacks?.find(stack => {
         return stack.stackName === 'thoughts'
     })
-    let behaviorStack = props.stacks?.find(stack => {
+    let habitsStack = props.stacks?.find(stack => {
         return stack.stackName === 'habits'
     })
-    let resultStack = props.stacks?.find(stack => {
+    let performanceStack = props.stacks?.find(stack => {
         return stack.stackName === 'performance'
     })
 
@@ -49,7 +49,7 @@ export default function WellBeingCard (props) {
 
     const requestValidation = () => {
         // TODO: Let user pick community for validation
-        let validator = 'pranag'
+        let validator = 'msp'
         let validatingCommunity = '602bf366af0d03643f769724'
 
         let requestBody = {}
@@ -122,30 +122,30 @@ export default function WellBeingCard (props) {
                                                 <Card.Text className="m-0 mt-2">
                                                     Emotions
                                                 </Card.Text>
-                                                <ProgressBar now={calculateScore(energyStack?.stackRatings)} label={calculateScore(energyStack?.stackRatings) + "%"} variant="warning" className="mb-1" />    
+                                                <ProgressBar now={calculateScore(emotionsStack?.stackRatings)} label={calculateScore(emotionsStack?.stackRatings) + "%"} variant="warning" className="mb-1" />    
                                                 <Card.Text className="m-0 mt-2">
-                                                    Feeling 
+                                                    Feelings
                                                 </Card.Text>
-                                                <ProgressBar now={calculateScore(feelingStack?.stackRatings)} label={calculateScore(feelingStack?.stackRatings) + "%"} variant="warning" className="mb-1" />   
+                                                <ProgressBar now={calculateScore(feelingsStack?.stackRatings)} label={calculateScore(feelingsStack?.stackRatings) + "%"} variant="warning" className="mb-1" />   
                                             </Col>
                                             <Col xs={6} md={6} lg={6}>
                                                 <Card.Text className="m-0 mt-2">
-                                                    Thinking
+                                                    Thoughts
                                                 </Card.Text>
-                                                <ProgressBar now={calculateScore(thinkingStack?.stackRatings)} label={calculateScore(thinkingStack?.stackRatings) + "%"} variant="warning" className="mb-1" />    
+                                                <ProgressBar now={calculateScore(thoughtsStack?.stackRatings)} label={calculateScore(thoughtsStack?.stackRatings) + "%"} variant="warning" className="mb-1" />    
                                                 <Card.Text className="m-0 mt-2">
-                                                    Behavior
+                                                    Habits
                                                 </Card.Text>
-                                                <ProgressBar now={calculateScore(behaviorStack?.stackRatings)} label={calculateScore(behaviorStack?.stackRatings) + "%"} variant="warning" className="mb-1" />
+                                                <ProgressBar now={calculateScore(habitsStack?.stackRatings)} label={calculateScore(habitsStack?.stackRatings) + "%"} variant="warning" className="mb-1" />
                                                 <Card.Text className="m-0 mt-2">
-                                                    Results    
+                                                    Performance    
                                                 </Card.Text>
-                                                <ProgressBar now={calculateScore(resultStack?.stackRatings)} label={calculateScore(resultStack?.stackRatings) + "%"} variant="warning" className="mb-1" />
+                                                <ProgressBar now={calculateScore(performanceStack?.stackRatings)} label={calculateScore(performanceStack?.stackRatings) + "%"} variant="warning" className="mb-1" />
                                             </Col>
                                         </Row>
                                 }
                                 </Card.Body>
-                        <Card.Footer className="text-muted text-center">Productivity Nodes</Card.Footer>
+                        <Card.Footer className="text-muted text-center">Well-Being Nodes</Card.Footer>
                     </Card>
                 </CardDeck>
             </Col>

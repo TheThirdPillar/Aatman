@@ -2,11 +2,11 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 
 import PhysiologyForm from './PhysiologyForm'
-import EnergyForm from './EnergyForm'
-import FeelingForm from './FeelingForm'
-import ThinkingForm from './ThinkingForm'
-import BehaviorForm from './BehaviorForm'
-import ResultsForm from './ResultsForm'
+import EmotionsForm from './EmotionsForm'
+import FeelingsForm from './FeelingsForm'
+import ThoughtsForm from './ThoughtsForm'
+import HabitsForm from './HabitsForm'
+import PerformanceForm from './PerformanceForm'
 
 function WellBeingForm (props) {
 
@@ -15,20 +15,20 @@ function WellBeingForm (props) {
     let physiologyStack = props.stacks?.find(stack => {
         return stack.stackName === 'physiology'
     })
-    let energyStack = props.stacks?.find(stack => {
-        return stack.stackName === 'energy'
+    let emotionsStack = props.stacks?.find(stack => {
+        return stack.stackName === 'emotions'
     })
-    let feelingStack = props.stacks?.find(stack => {
-        return stack.stackName === 'feeling'
+    let feelingsStack = props.stacks?.find(stack => {
+        return stack.stackName === 'feelings'
     })
-    let thinkingStack = props.stacks?.find(stack => {
-        return stack.stackName === 'thinking'
+    let thoughtsStack = props.stacks?.find(stack => {
+        return stack.stackName === 'thoughts'
     })
-    let behaviorStack = props.stacks?.find(stack => {
-        return stack.stackName === 'behavior'
+    let habitsStack = props.stacks?.find(stack => {
+        return stack.stackName === 'habits'
     })
-    let resultStack = props.stacks?.find(stack => {
-        return stack.stackName === 'result'
+    let performanceStack = props.stacks?.find(stack => {
+        return stack.stackName === 'performance'
     })
 
     return (
@@ -50,60 +50,60 @@ function WellBeingForm (props) {
                 <Card>
                     <Card.Header>
                     <Accordion.Toggle as={Card.Header}  eventKey="1">
-                        Energy
+                        Emotions
                     </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="1">
                     <Card.Body>
-                        <EnergyForm values={energyStack?.stackRatings} updateStack={(updatedStack) => props.updateStack(updatedStack)} />
+                        <EmotionsForm values={emotionsStack?.stackRatings} updateStack={(updatedStack) => props.updateStack(updatedStack)} />
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>
                 <Card>
                     <Card.Header>
                     <Accordion.Toggle as={Card.Header}  eventKey="2">
-                        Feeling
+                        Feelings
                     </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="2">
                     <Card.Body>
-                        <FeelingForm values={feelingStack?.stackRatings} updateStack={(updatedStack) => props.updateStack(updatedStack)} />
+                        <FeelingsForm values={feelingsStack?.stackRatings} updateStack={(updatedStack) => props.updateStack(updatedStack)} />
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>
                 <Card>
                     <Card.Header>
                     <Accordion.Toggle as={Card.Header}  eventKey="3">
-                        Thinking
+                        Thoughts
                     </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="3">
                     <Card.Body>
-                        <ThinkingForm values={thinkingStack?.stackRatings} updateStack={(updatedStack) => props.updateStack(updatedStack)} />
+                        <ThoughtsForm values={thoughtsStack?.stackRatings} updateStack={(updatedStack) => props.updateStack(updatedStack)} />
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>
                 <Card>
                     <Card.Header>
                     <Accordion.Toggle as={Card.Header}  eventKey="4">
-                        Behavior
+                        Habits
                     </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="4">
                     <Card.Body>
-                        <BehaviorForm values={behaviorStack?.stackRatings} updateStack={(updatedStack) => props.updateStack(updatedStack)} />
+                        <HabitsForm values={habitsStack?.stackRatings} updateStack={(updatedStack) => props.updateStack(updatedStack)} />
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>
                 <Card>
                     <Card.Header>
                     <Accordion.Toggle as={Card.Header}  eventKey="5">
-                        Results
+                        Performance
                     </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="5">
                     <Card.Body>
-                        <ResultsForm values={resultStack?.stackRatings} updateStack={(updatedStack) => props.updateStack(updatedStack)} />
+                        <PerformanceForm values={performanceStack?.stackRatings} updateStack={(updatedStack) => props.updateStack(updatedStack)} />
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>
