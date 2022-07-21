@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 
 import { domain } from '../config/config'
 
-function BehaviorForm (props) {
+function HabitsForm (props) {
 
     const [inputFields, setInputFields] = useState({
         q1: 0,
@@ -23,7 +23,7 @@ function BehaviorForm (props) {
         if (hasChanged) {
 
             let formData = {
-                stackName: 'behavior',
+                stackName: 'habits',
                 stackRatings: inputFields
             }
             fetch(domain + '/application/listen/identity/handleProductivityStack', {
@@ -110,4 +110,4 @@ function BehaviorForm (props) {
     )
 }
 
-export default BehaviorForm
+export default HabitsForm

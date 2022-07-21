@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 
 import { domain } from '../config/config'
 
-function ResultsForm (props) {
+function PerformanceForm (props) {
 
     const [inputFields, setInputFields] = useState({
         q1: 0,
@@ -23,7 +23,7 @@ function ResultsForm (props) {
         if (hasChanged) {
 
             let formData = {
-                stackName: 'result',
+                stackName: 'performance',
                 stackRatings: inputFields
             }
             fetch(domain + '/application/listen/identity/handleProductivityStack', {
@@ -110,4 +110,4 @@ function ResultsForm (props) {
     )
 }
 
-export default ResultsForm
+export default PerformanceForm

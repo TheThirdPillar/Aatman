@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 
 import { domain } from '../config/config'
 
-function ThinkingForm (props) {
+function ThoughtsForm (props) {
 
     const [inputFields, setInputFields] = useState({
         q1: 0,
@@ -23,7 +23,7 @@ function ThinkingForm (props) {
         if (hasChanged) {
 
             let formData = {
-                stackName: 'thinking',
+                stackName: 'thoughts',
                 stackRatings: inputFields
             }
             fetch(domain + '/application/listen/identity/handleProductivityStack', {
@@ -110,4 +110,4 @@ function ThinkingForm (props) {
     )
 }
 
-export default ThinkingForm
+export default ThoughtsForm
