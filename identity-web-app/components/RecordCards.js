@@ -36,6 +36,15 @@ function RecordCards(props) {
           <Card.Body>
             <Card.Title className="text-capitalize">
               {record.organizationName}
+              {
+                (record.parentOrganizationName)
+                  ? 
+                    <>
+                      <br />
+                      <sub>{record.parentOrganizationName.toUpperCase()}</sub>
+                    </>
+                  : ''
+              }
             </Card.Title>
             <Card.Text className="text-capitalize">
               {(record.certificationName) ? record.certificationName : ''} {(record.specialization) ? record.specialization : record.position}

@@ -14,7 +14,7 @@ function CommunitySection(props) {
         <Col xs={12} md={12} lg={12}>
           <CardDeck className={styles.section}>
             {props.communities?.map(((community, index) => (
-              <CommunityCard key={index} isPublic={props.isPublic} community={community} />
+              <CommunityCard key={index} isPublic={props.isPublic} community={community} handleEdit={() => props.handleModalShow({type: "8", data: { communityId: community.community._id, powURL: community.powURL }})} handleDelete={() => props.handleModalShow({type: "6", data: community, object: 'community' })} />
             )))}
           </CardDeck>
         </Col>

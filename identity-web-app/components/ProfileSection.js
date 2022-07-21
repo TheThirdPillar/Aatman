@@ -27,8 +27,8 @@ function ProfileSection(props) {
         <Col xs={12} md={12} lg={10}>
           <Card>
             <Row className="justify-text-center">
-              <Col xs={3} md={3} lg={3}>
-                <Image src={(props.user?.avatar && props.user.avatar !== "") ? (domain + "/" + props.user.avatar) : "/userThumbnail.png"} className="m-2 p-2" />
+              <Col xs={6} md={3} lg={3}>
+                <Image src={(props.user?.avatar && props.user.avatar !== "") ? (domain + "/" + props.user.avatar) : "/userThumbnail.png"} className="m-2 p-2" thumbnail />
               </Col>
               <Col xs={9} md={9} lg={9}>
                 <Card.Body>
@@ -75,8 +75,8 @@ function ProfileSection(props) {
             </Row>
           </Card>
         </Col>
-        <Col xs={12} md={12} lg={2}>
-          <QRCode value={"https://identity.skillschain.org/" + props.username} size={148} className="mt-4" />
+        <Col xs={12} md={6} lg={2}>
+          <QRCode value={"https://identity.skillschain.org/" + props.username} size={148} className="mt-2" />
         </Col>
       </Row>
     </>

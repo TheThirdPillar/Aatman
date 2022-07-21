@@ -40,7 +40,7 @@ function CustomModal(props) {
             modalBody = <VirtueBox virtues={props.formData.virtues} updateVirtues={(list) => {props.updateVirtues(list)}} />
             break  
         case "8":
-            modalBody = <CommunityForm formData={props.formData.data} closeModal={props.onHide} updateUserCommunities={(newList) => props.updateUserCommunities(newList)} />
+            modalBody = <CommunityForm formData={props.formData} closeModal={props.onHide} updateUserCommunities={(newList) => props.updateUserCommunities(newList)} />
             break
         case "9":
             modalBody = <SoftskillBox softskills={props.formData.softskills} closeModal={props.onHide} updateSoftskills={(list) => {props.updateSoftskills(list)}} />
