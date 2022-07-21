@@ -30,7 +30,7 @@ function CommunityCards(props) {
             </div>
             <span className="text-right col-4">
              {
-               (!props.isPublic) ?  <CardDropdown color="#000000" data={props.community} handleEdit={props.handleEdit} handleDelete={() => props.handleDelete()} /> : <></>
+               (!props.isPublic) ?  <CardDropdown color="#000000" data={props.community} handleEdit={() => props.handleEdit()} handleDelete={() => props.handleDelete()} /> : <></>
              }
             </span>
           </div>

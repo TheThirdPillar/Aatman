@@ -25,12 +25,12 @@ export default function Home() {
   // TODO: Search for token here itsel and redirect to user page if
   // sessions exists.
   const router = useRouter()
-  const [isUserSession, setUserSession] = useState(false)
+  const [isUserSession, setUserSession] = useState(Cookies.get('token'))
   useEffect(() => {
     if (isUserSession) {
       router.push('/user')
     }
-  })
+  }, [])
 
   return (
     <>

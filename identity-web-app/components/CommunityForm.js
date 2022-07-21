@@ -21,9 +21,9 @@ function CommunityForm(props) {
         powURL: '',
         ...props.formData
     })
-
     const [selectedCommunity, updateSelectedCommunity] = useState([])
     const [communities, updateCommunities] = useState([])
+
     useEffect(() => {
         if (communities.length == 0) {
             fetch(domain + '/community', {
@@ -33,8 +33,13 @@ function CommunityForm(props) {
             .then(data => {
                 if (data.status && data.status === 'SUCCESS') {
                     updateCommunities(data.communities)
+                    console.info(inputFields)
                     if (inputFields.communityId !== '') {
-                        // This is to handle edit
+                        if (inputFields.communityId !== '') {
+                            console.info('Edit mode')
+                            console.info(data.communities.filter((community) => community._id === inputFields.communityId))
+                            updateSelectedCommunity(data.communities.filter((community) => community._id === inputFields.communityId))
+                        }
                     }
                 }
             })

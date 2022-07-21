@@ -29,13 +29,13 @@ export default function WellBeingCard (props) {
         return stack.stackName === 'feeling'
     })
     let thinkingStack = props.stacks?.find(stack => {
-        return stack.stackName === 'thinking'
+        return stack.stackName === 'thoughts'
     })
     let behaviorStack = props.stacks?.find(stack => {
-        return stack.stackName === 'behavior'
+        return stack.stackName === 'habits'
     })
     let resultStack = props.stacks?.find(stack => {
-        return stack.stackName === 'result'
+        return stack.stackName === 'performance'
     })
 
     const calculateScore = (ratings) => {
@@ -83,7 +83,7 @@ export default function WellBeingCard (props) {
                 <CardDeck className="m-2">
                     <Card className="text-center bg-dark text-white">
                         <Card.Body>
-                            <Card.Title>Overall Score</Card.Title>
+                            <Card.Title>Well-Being Score</Card.Title>
                             <Card.Text className={styles.wellBeingScore + " font-weight-bold mt-4"}>
                                 {
                                     (props.isPublic)
@@ -145,7 +145,7 @@ export default function WellBeingCard (props) {
                                         </Row>
                                 }
                                 </Card.Body>
-                        <Card.Footer className="text-muted text-center">Productivity Stack</Card.Footer>
+                        <Card.Footer className="text-muted text-center">Productivity Nodes</Card.Footer>
                     </Card>
                 </CardDeck>
             </Col>

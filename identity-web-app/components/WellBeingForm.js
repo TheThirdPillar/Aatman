@@ -33,7 +33,7 @@ function WellBeingForm (props) {
 
     return (
         <>
-            <h4 className="text-center">Well Being Form - Powered by Stranger Sapiens</h4>
+            <h4 className="text-center">Well Being Form - Powered by <a href='https://wellbeingprotocol.org/' target="_blank">Well Being Protocol</a></h4>
             <Accordion className="mt-2">
                 <Card>
                     <Card.Header>

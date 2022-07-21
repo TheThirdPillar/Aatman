@@ -14,7 +14,7 @@ function WellBeingSection (props) {
             <SectionTitle title={props.title} subtitle={
                 (props.isPublic)
                     ? <a href="#"><FaLock /> Request Well-being Score</a>
-                    : <a href="#" onClick={() => props.handleModalShow({type: "10", data: props.stacks})}><FaBrain /> Manage Stack</a>
+                    : <a href="#" onClick={() => props.handleModalShow({type: "10", data: props.stacks})}><FaBrain /> Manage Nodes</a>
             } addButtonEnabled={false} />
             <WellBeingCard score={Number.isNaN(overallScore) ? 0 : overallScore} stacks={props.stacks} validation={props.validation} isPublic={props.isPublic} handleValidationRequest={(wellBeingValidation) => props.handleValidationRequest(wellBeingValidation) } />
         </>

@@ -128,7 +128,7 @@ export default function UserDashboard() {
   }
 
   if (!userData) return (
-    <Spinner animation="grow" variant="primary" size="sm" style={{marginTop: '20%', marginLeft: '45%'}} />
+    <Spinner animation="grow" variant="primary" size="sm" style={{marginTop: '30%', marginLeft: '50%'}} />
   )
 
   return (
@@ -143,13 +143,13 @@ export default function UserDashboard() {
                 ? <VideoSection url={videoURL} showVideo={showVideo} closeVideo={() => handleVideoClose()} />
                 : ""
         }
-        <WellBeingSection title="Well-being/Productivity Score" validation={wellBeingValidation} score={overallScore} stacks={productivityStacks} handleModalShow={(form) => handleModalShow(form)} handleValidationRequest={(wellBeingValidation) => handleValidationRequest(wellBeingValidation)} isPublic={false} />
+        <WellBeingSection title="Well-being Info" validation={wellBeingValidation} score={overallScore} stacks={productivityStacks} handleModalShow={(form) => handleModalShow(form)} handleValidationRequest={(wellBeingValidation) => handleValidationRequest(wellBeingValidation)} isPublic={false} />
         <SkillSection title="Hard Skills" skills={userData?.skillRecords} handleModalShow={(form) => handleModalShow(form)} isPublic={false} />
         <SoftskillSection title="Soft Skills" softskills={softskills} handleModalShow={(form) => handleModalShow(form)} isPublic={false} />
         <VirtueSection title="Virtues" virtues={virtues} isPublic={false} handleModalShow={(form) => handleModalShow(form)} />
         <CommunitySection title="Communities" communities={communities} isPublic={false} handleModalShow={(form) => handleModalShow(form)} />
         <RecordSection title="Education" handleModalShow={(form) => handleModalShow(form)} records={userData?.educationRecords} isPublic={false} />
-        <RecordSection title="Work" handleModalShow={(form) => handleModalShow(form)} records={userData?.professionalRecords} isPublic={false} />
+        <RecordSection title="Work Experience" handleModalShow={(form) => handleModalShow(form)} records={userData?.professionalRecords} isPublic={false} />
         <CustomModal show={modalShow.show} onHide={() => handleModalClose()} form={modalShow.form.type} formData={modalShow.form.data} object={modalShow.form.object} isPublic={false} updateVirtues={(list) => updateVirtues(list)} updateUserCommunities={(list) => updateCommunities(list)} updateSoftskills={(list) => updateSoftskills(list)} updateStack={(updatedStack) => updateStack(updatedStack)} handleIdentityDocuments={() => handleIdentityDocuments()}/>
       </DefaultLayout>
     </>
