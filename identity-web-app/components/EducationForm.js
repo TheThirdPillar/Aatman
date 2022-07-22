@@ -22,7 +22,7 @@ function EducationForm(props) {
         startDate: null,
         endDate: null,
         documents: [],
-        active: true,
+        active: false,
         ...props.formData
     })
 
@@ -114,12 +114,13 @@ function EducationForm(props) {
                             onChange={(date) => setDate(date, "startDate")} 
                             selected={new Date(inputFields.startDate)}
                             className="form-control d-block" 
-                            placeholderText="Start date Ex. August 2009" 
+                            placeholderText="Start date Ex. August, 2009" 
                             dateFormat="MM/yyyy"
                             name="startDate"
                             maxDate={new Date()}
-                            showMonthYearPicker
-                            showFullMonthYearPicker
+                            showMonthDropdown
+                            showYearDropdown
+                            dropdownMode="select"
                             required
                         />
                     </Form.Group>
@@ -128,11 +129,12 @@ function EducationForm(props) {
                             onChange={(date) => setDate(date, "endDate")} 
                             selected={new Date(inputFields.endDate)}
                             className="form-control d-block" 
-                            placeholderText="End date Ex. June 2013" 
+                            placeholderText="End date Ex. June, 2013" 
                             dateFormat="MM/yyyy"
                             name="endDate"
-                            showMonthYearPicker
-                            showFullMonthYearPicker
+                            showMonthDropdown
+                            showYearDropdown
+                            dropdownMode="select"
                             disabled={inputFields.active}
                         />
                         <Form.Check type="switch" label="Currently Active" checked={(inputFields.active) ? "checked" : ""} onChange={(e) => handleChange(e)} name="active" />

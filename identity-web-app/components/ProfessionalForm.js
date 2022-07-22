@@ -21,7 +21,7 @@ function ProfessionalForm(props) {
         position: "",
         startDate: null, 
         endDate: null,
-        active: true,
+        active: false,
         documents: [],
         ...props.formData
     })
@@ -123,8 +123,9 @@ function ProfessionalForm(props) {
                             dateFormat="MM/yyyy"
                             name="startDate"
                             maxDate={new Date()}
-                            showMonthYearPicker
-                            showFullMonthYearPicker
+                            showMonthDropdown
+                            showYearDropdown
+                            dropdownMode="select"
                             required
                         />
                     </Form.Group>
@@ -136,8 +137,9 @@ function ProfessionalForm(props) {
                             placeholderText="End date Ex. June 2013" 
                             dateFormat="MM/yyyy"
                             name="endDate"
-                            showMonthYearPicker
-                            showFullMonthYearPicker
+                            showMonthDropdown
+                            showYearDropdown
+                            dropdownMode="select"
                             disabled={inputFields.active}
                         />
                         <Form.Check type="switch" label="Currently Active" checked={(inputFields.active) ? "checked" : ""} onChange={(e) => handleChange(e)} name="active" />
