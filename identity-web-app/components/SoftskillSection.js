@@ -8,12 +8,13 @@ import Button from 'react-bootstrap/Button'
 
 import styles from '../styles/Dashboard.module.css'
 import SectionTitle from './SectionTitle'
+import { GrYoutube } from 'react-icons/gr'
 
 function SoftskillSection(props) {
 
     return (
         <>
-            <SectionTitle title={props.title} addButtonEnabled={!props.isPublic} handleAdd={() => props.handleModalShow({type: "9", data: {softskills: props.softskills}})} />
+            <SectionTitle title={props.title} icon={<GrYoutube/>} iconEnabled={props.endorsed} iconUrl={props.endoresementUrl} addButtonEnabled={!props.isPublic} handleAdd={() => props.handleModalShow({type: "9", data: {softskills: props.softskills}})} />
             <Row className="justify-content-center m-2">
                 <Col xs={12} md={12} lg={12}>
                     <CardDeck className={styles.section}>

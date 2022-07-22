@@ -85,7 +85,7 @@ function PersonalForm(props) {
             return
         }
 
-        if (e.target.name === "facebook" || e.target.name === "twitter" || e.target.name === "linkedin" || e.target.name === "medium" || e.target.name === "youtube" ) {
+        if (e.target.name === "facebook" || e.target.name === "twitter" || e.target.name === "linkedin" || e.target.name === "medium" || e.target.name === "youtube" || e.target.name === "youtubeDreams" || e.target.name === "youtubeSoftskills" || e.target.name === "youtubeVirtues" ) {
             currentField.social[e.target.name] = e.target.value
             setInputFields(currentField)
             return
@@ -292,6 +292,36 @@ function PersonalForm(props) {
                                         <InputGroup.Text id="basic-addon1"><FaYoutube /></InputGroup.Text>
                                     </InputGroup.Prepend>
                                     <Form.Control type="text" placeholder="Add a smal introductory video to feature on public profile." value={inputFields.social.youtube} name="youtube" onChange={(e) => handleChange(e)} />
+                                </InputGroup>
+                            </Form.Group> 
+                        </Form.Row>
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="socialFormYoutubeDreamsAndVision">
+                                <InputGroup>
+                                    <InputGroup.Prepend>
+                                        <InputGroup.Text id="basic-addon1"><FaYoutube /></InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                    <Form.Control type="text" placeholder="Youtube link where you explain your dreams and vision." value={inputFields.social.youtubeDreams} name="youtubeDreams" onChange={(e) => handleChange(e)} />
+                                </InputGroup>
+                            </Form.Group> 
+                        </Form.Row>
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="socialFormYoutubeSoftskills">
+                                <InputGroup>
+                                    <InputGroup.Prepend>
+                                        <InputGroup.Text id="basic-addon1"><FaYoutube /></InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                    <Form.Control type="text" placeholder="Youtube link where you explain your softskills." value={inputFields.social.youtubeSoftskills} name="youtubeSoftskills" onChange={(e) => handleChange(e)} />
+                                </InputGroup>
+                            </Form.Group> 
+                        </Form.Row>
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="socialFormYoutubeVirtues">
+                                <InputGroup>
+                                    <InputGroup.Prepend>
+                                        <InputGroup.Text id="basic-addon1"><FaYoutube /></InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                    <Form.Control type="text" placeholder="Youtube link where you explain your virtues." value={inputFields.social.youtubeVirtues} name="youtubeVirtues" onChange={(e) => handleChange(e)} />
                                 </InputGroup>
                             </Form.Group> 
                         </Form.Row>

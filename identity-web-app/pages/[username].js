@@ -19,6 +19,9 @@ import ErrorSection from '../components/ErrorSection'
 
 import { domain } from '../config/config'
 
+const introTitle = "A brief introduction about me"
+const dreamsTitle = "My dreams and vision"
+
 export default function PublicProfile() {
 
     const router = useRouter()
@@ -32,8 +35,6 @@ export default function PublicProfile() {
     const [userData, setUserData] = useState(null)
     useEffect(() => {
         if ( userData == null && username) {
-            console.log("This is called")
-
             fetch(domain + '/user/getidentityprofile?username=' + username, {
                 method: 'GET',
                 headers: {
@@ -43,10 +44,28 @@ export default function PublicProfile() {
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 if (data.status === 'SUCCESS' && data.user && data.user.username) {
                     setUserData(data.user)
+                    
+                    if (data.user.profile?.social?.youtube)
                     setVideoURL(data.user.profile.social.youtube)
+                    else toggleShowVideo(false)
+
+                    if (data.user.profile?.social?.youtubeDreams) {
+                        setDreamsUrl(data.user.profile.social.youtubeDreams)
+                        setDream(true)
+                    }
+
+                    if (data.user.profile?.social?.youtubeSoftskills) {
+                        setSoftskillsUrl(data.user.profile.social.youtubeSoftskills)
+                        setSoftskillEndorsement(true)
+                    }
+            
+                    if (data.user.profile?.social?.youtubeVirtues) {
+                        setVirtueUrl(data.user.profile.social.youtubeVirtues)
+                        setVirtueEndorsement(true)
+                    }
+
                 } 
 
                 if (data.status === 'SUCCESS' && data.user == null) {
@@ -57,6 +76,16 @@ export default function PublicProfile() {
             })
         }        
     }, [userData, username])
+
+    // Dreams, softskills, virtues
+    const [hasDreams, setDream] = useState(false)
+    const [dreamsUrl, setDreamsUrl] = useState()
+
+    const [hasSoftskillEndorsement, setSoftskillEndorsement] = useState(false)
+    const [softskillsUrl, setSoftskillsUrl] = useState()
+    
+    const [hasVirtueEndorsement, setVirtueEndorsement] = useState(false)
+    const [virtueUrl, setVirtueUrl] = useState()
 
     if (userData == null) return (
         <Spinner animation="grow" variant="primary" size="sm" style={{marginTop: '20%', marginLeft: '45%'}} />
@@ -100,13 +129,18 @@ export default function PublicProfile() {
                 <ProfileSection user={userData?.profile} username={userData?.username} handleModalShow={(form) => handleModalShow(form)} isPublic={true} playMedia={(url) => handleVideo(url)} />
                 {
                     (showVideo)
-                        ? <VideoSection url={videoURL} showVideo={showVideo} closeVideo={() => handleVideoClose()} />
+                        ? <VideoSection url={videoURL} showVideo={showVideo} closeVideo={() => handleVideoClose()} hasClose={true} title={introTitle} />
                         : ""
                 }
                 <WellBeingSection title="Well-being/Productivity Score" subtitle={userData.wellbeing?.validator} isPublic={true} />
                 <SkillSection title="Hard Skills" skills={userData?.skillRecords} handleModalShow={(form) => handleModalShow(form)} isPublic={true} />
-                <SoftskillSection title="Soft Skills" softskills={userData?.softskills} isPublic={true} />
-                <VirtueSection title="Virtues" virtues={userData?.virtues} isPublic={true} />
+                <SoftskillSection title="Soft Skills" softskills={userData?.softskills} isPublic={true} endorsed={hasSoftskillEndorsement} endoresementUrl={softskillsUrl} />
+                <VirtueSection title="Virtues" virtues={userData?.virtues} isPublic={true} endorsed={hasVirtueEndorsement} endoresementUrl={virtueUrl} />
+                {
+                    (hasDreams)
+                        ? <VideoSection url={dreamsUrl} showVideo={hasDreams} hasClose={false} title={dreamsTitle} />
+                        : ""
+                }
                 <CommunitySection title="Community" communities={userData?.communities} isPublic={true} />
                 <RecordSection title="Education" handleModalShow={(form) => handleModalShow(form)} records={userData?.educationRecords} isPublic={true} />
                 <RecordSection title="Work" handleModalShow={(form) => handleModalShow(form)} records={userData?.professionalRecords} isPublic={true} />

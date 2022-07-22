@@ -19,6 +19,13 @@ import CustomModal from '../../components/Modal'
 
 import { domain } from '../../config/config'
 
+
+// Section headers
+// Remember: Section Title should be generated from a config file
+
+const introTitle = "A brief introduction about me"
+const dreamsTitle = "My dreams and vision"
+
 export default function UserDashboard() {
 
   const router = useRouter()
@@ -28,6 +35,16 @@ export default function UserDashboard() {
   // Video Section
   const [showVideo, toggleShowVideo] = useState(false)
   const [videoURL, setVideoURL] = useState()
+
+  // Dreams, softskills, virtues
+  const [hasDreams, setDream] = useState(false)
+  const [dreamsUrl, setDreamsUrl] = useState()
+
+  const [hasSoftskillEndorsement, setSoftskillEndorsement] = useState(false)
+  const [softskillsUrl, setSoftskillsUrl] = useState()
+  
+  const [hasVirtueEndorsement, setVirtueEndorsement] = useState(false)
+  const [virtueUrl, setVirtueUrl] = useState()
 
   useEffect(() => {
     if (!userData && !isUserSession) router.push('/')
@@ -44,6 +61,22 @@ export default function UserDashboard() {
         if (data.status === 'SUCCESS') {
           if (!data.user.username) return router.push('/user/onboarding')
           setUserData(data.user)
+
+          if (data.user.profile?.social?.youtubeDreams) {
+            setDreamsUrl(data.user.profile.social.youtubeDreams)
+            setDream(true)
+          }
+
+          if (data.user.profile?.social?.youtubeSoftskills) {
+            setSoftskillsUrl(data.user.profile.social.youtubeSoftskills)
+            setSoftskillEndorsement(true)
+          }
+
+          if (data.user.profile?.social?.youtubeVirtues) {
+            setVirtueUrl(data.user.profile.social.youtubeVirtues)
+            setVirtueEndorsement(true)
+          }
+
           updateProductivityStacks(data.user.wellBeingStacks)
           updateWellBeingValidation(data.user.wellBeingValidation)
           updateSoftskills(data.user.softskills)
@@ -140,13 +173,18 @@ export default function UserDashboard() {
         <ProfileSection user={userData?.profile} username={userData?.username} documents={userData?.identityDocuments}  handleModalShow={(form) => handleModalShow(form)} isPublic={false} playMedia={(url) => handleVideo(url)} />
         {
             (showVideo)
-                ? <VideoSection url={videoURL} showVideo={showVideo} closeVideo={() => handleVideoClose()} />
+                ? <VideoSection url={videoURL} showVideo={showVideo} closeVideo={() => handleVideoClose()} hasClose={true} title={introTitle} />
                 : ""
         }
         <WellBeingSection title="Well-being Info" validation={wellBeingValidation} score={overallScore} stacks={productivityStacks} handleModalShow={(form) => handleModalShow(form)} handleValidationRequest={(wellBeingValidation) => handleValidationRequest(wellBeingValidation)} isPublic={false} />
         <SkillSection title="Hard Skills" skills={userData?.skillRecords} handleModalShow={(form) => handleModalShow(form)} isPublic={false} />
-        <SoftskillSection title="Soft Skills" softskills={softskills} handleModalShow={(form) => handleModalShow(form)} isPublic={false} />
-        <VirtueSection title="Virtues" virtues={virtues} isPublic={false} handleModalShow={(form) => handleModalShow(form)} />
+        <SoftskillSection title="Soft Skills" softskills={softskills} handleModalShow={(form) => handleModalShow(form)} isPublic={false} endorsed={hasSoftskillEndorsement} endoresementUrl={softskillsUrl} />
+        <VirtueSection title="Virtues" virtues={virtues} isPublic={false} handleModalShow={(form) => handleModalShow(form)} endorsed={hasVirtueEndorsement} endoresementUrl={virtueUrl} />
+        {
+            (hasDreams)
+                ? <VideoSection url={dreamsUrl} showVideo={hasDreams} hasClose={false} title={dreamsTitle} />
+                : ""
+        }
         <CommunitySection title="Communities" communities={communities} isPublic={false} handleModalShow={(form) => handleModalShow(form)} />
         <RecordSection title="Education" handleModalShow={(form) => handleModalShow(form)} records={userData?.educationRecords} isPublic={false} />
         <RecordSection title="Work Experience" handleModalShow={(form) => handleModalShow(form)} records={userData?.professionalRecords} isPublic={false} />
