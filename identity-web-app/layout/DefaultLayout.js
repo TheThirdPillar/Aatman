@@ -12,6 +12,7 @@ function DefaultLayout(props) {
 
   const router = useRouter()
   const [isShieldInstalled, toggleShieldIsInstalled] = useState(false)
+  const [isChrome, toggleIsChrome] = useState(true);
   useEffect(() => {
     // Check if shield is installed
     if (!isShieldInstalled) {
@@ -21,6 +22,12 @@ function DefaultLayout(props) {
       connectToExtension(request)
       .then((response) => {
         if (response.status == 'SUCCESS') toggleShieldIsInstalled(true)
+      })
+      .catch((error) => {
+        console.info(error instanceof Error);
+        if (error) {
+          toggleIsChrome(false);
+        }
       })
     }
   }, [isShieldInstalled])
@@ -57,7 +64,7 @@ function DefaultLayout(props) {
   return (
     <>
       <Container>
-        <Topbar isUserSession={props.isUserSession} setUserSession={(session) => props.toggleSesion(session)} isShieldInstalled={isShieldInstalled} handleLogin={handleLogin} handleLogout={handleLogout} />
+        <Topbar isUserSession={props.isUserSession} setUserSession={(session) => props.toggleSesion(session)} isShieldInstalled={isShieldInstalled} handleLogin={handleLogin} handleLogout={handleLogout} isChrome={isChrome} />
         <div>
           {props.children}
         </div>
