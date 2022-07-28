@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 import Badge from 'react-bootstrap/Badge'
+import Alert from 'react-bootstrap/Alert'
 
 import Logo from './Logo'
 import { FaArrowCircleDown, FaSignInAlt, FaSignOutAlt, FaRegIdCard, FaWallet, FaFolder } from 'react-icons/fa'
@@ -42,6 +43,15 @@ function Topbar(props) {
   return (
     <>
       <Row className="justify-content-center">
+        {
+          (!props.isChrome) 
+            ?
+            <Alert variant="danger">
+              Please install {" "}
+              <Alert.Link href="#">Google Chrome</Alert.Link> to use this application.
+            </Alert>
+            : ""
+        }
         <Col xs={12} md={12} lg={12}>
           <Navbar bg="white" expand="lg" sticky="top">
             <Navbar.Brand href={(isUserSession) ? '/user' : '/'}>
@@ -71,17 +81,23 @@ function Topbar(props) {
             }
             <Navbar.Collapse className="justify-content-end">
               <Navbar.Text>
-                {!isShieldInstalled &&
+                {
+                  !props.isChrome &&
+                    <Button variant="primary" size="md" block="true" disabled>
+                      Install Chrome | <FaArrowCircleDown />
+                    </Button>
+                }
+                {(props.isChrome && !isShieldInstalled) &&
                   <Button variant="primary" size="md" block="true" onClick={() => handleShieldInstallation()}>
                     Download Shield | <FaArrowCircleDown />
                   </Button>
                 }
-                {(isShieldInstalled && !isUserSession) &&
+                {(props.isChrome && isShieldInstalled && !isUserSession) &&
                   <Button variant="success" size="md" onClick={props.handleLogin} >
                     Shield Login | <FaSignInAlt />
                   </Button>
                 }
-                {(isShieldInstalled && isUserSession) &&
+                {(props.isChrome && isShieldInstalled && isUserSession) &&
                   <Button variant="dark" size="md" onClick={props.handleLogout}>
                     Shield Logout | <FaSignOutAlt />
                   </Button>
