@@ -63,7 +63,7 @@ function DefaultLayout(props) {
   
   return (
     <>
-      <Container>
+      <Container fluid>
         <Topbar isUserSession={props.isUserSession} setUserSession={(session) => props.toggleSesion(session)} isShieldInstalled={isShieldInstalled} handleLogin={handleLogin} handleLogout={handleLogout} isChrome={isChrome} />
         <div>
           {props.children}

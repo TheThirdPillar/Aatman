@@ -27,10 +27,17 @@ function ProfileSection(props) {
         <Col xs={12} md={12} lg={10}>
           <Card>
             <Row className="justify-text-center">
-              <Col xs={6} md={3} lg={3}>
-                <Image src={(props.user?.avatar && props.user.avatar !== "") ? (domain + "/" + props.user.avatar) : "/userThumbnail.png"} className="m-2 p-2" thumbnail />
+              <Col xs={12} md={12} lg={3}>
+                <Row className='align-items-center'>
+                  <Col xs={8} md={8} lg={12}>
+                    <Image src={(props.user?.avatar && props.user.avatar !== "") ? (domain + "/" + props.user.avatar) : "/userThumbnail.png"} className="m-2 p-2" thumbnail />
+                  </Col>
+                  <Col xs={4} className="text-center mt-3 d-lg-none d-xl-none">
+                    <QRCode value={"https://identity.skillschain.org/" + props.username} size="128"/>
+                  </Col>
+                </Row>
               </Col>
-              <Col xs={9} md={9} lg={9}>
+              <Col xs={12} md={12} lg={9} className="p-xs-2">
                 <Card.Body>
                   <Card.Title className="text-capitalize">
                     {props.user?.fullname}
@@ -75,7 +82,7 @@ function ProfileSection(props) {
             </Row>
           </Card>
         </Col>
-        <Col xs={12} md={6} lg={2}>
+        <Col lg={2} className="d-none d-lg-block d-xl-block">
           <QRCode value={"https://identity.skillschain.org/" + props.username} size={148} className="mt-2" />
         </Col>
       </Row>
