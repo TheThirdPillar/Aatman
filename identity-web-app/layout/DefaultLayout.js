@@ -24,8 +24,8 @@ function DefaultLayout(props) {
         if (response.status == 'SUCCESS') toggleShieldIsInstalled(true)
       })
       .catch((error) => {
-        console.info(error instanceof Error);
-        if (error) {
+        console.info(error.message);
+        if (error.message === 'chrome is not defined') {
           toggleIsChrome(false);
         }
       })
