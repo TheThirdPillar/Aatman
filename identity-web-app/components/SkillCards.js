@@ -16,7 +16,7 @@ function SkillCards(props) {
 
   return (
     <>
-      <Col xs={12} md={12} lg={4}>
+      <Col xs={12} md={6} lg={4}>
         <Card
           bg={props.skill.data.skillTag == 'tertiary' ? 'dark' : props.skill.data.skillTag}
           text="white"

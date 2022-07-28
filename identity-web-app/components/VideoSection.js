@@ -15,13 +15,15 @@ function VideoSection(props) {
         {
           (props.hasClose)
             ?
-              <Row className="d-flex justify-content-end">
+              <Row>
+                <Col xs={12} md={12} lg={12} className="d-flex justify-content-end">
                   <GrClose onClick={() => props.closeVideo()} />
+                </Col>
               </Row>
             : ''
         }
-        <Row className={"justify-content-center m-2 " +  styles.section}>
-            <Col xs={12} md={6} lg={6}>
+        <Row className={"m-2 " +  styles.section}>
+            <Col xs={12} md={12} lg={12} className={"justify-text-center " + styles.video}>
                 <ReactPlayer url={props.url} />
             </Col>
         </Row>

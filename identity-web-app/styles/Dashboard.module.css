@@ -3,6 +3,10 @@
   padding: 1px;
 }
 
+.video {
+  text-align: -webkit-center;
+}
+
 .externalAccountSection {
   margin-bottom: 15px;
   padding: 1px;
