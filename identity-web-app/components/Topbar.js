@@ -52,6 +52,14 @@ function Topbar(props) {
             </Alert>
             : ""
         }
+        {
+          (props.loginError)
+            ?
+            <Alert variant='danger'>
+              Unable to authenticate, please check the password.
+            </Alert>
+            : ""
+        }
         <Col xs={12} md={12} lg={12}>
           <Navbar bg="white" expand="lg" sticky="top">
             <Navbar.Brand href={(isUserSession) ? '/user' : '/'}>
