@@ -33,7 +33,7 @@ function ProfileSection(props) {
                     <Image src={(props.user?.avatar && props.user.avatar !== "") ? (domain + "/" + props.user.avatar) : "/userThumbnail.png"} className="m-2 p-2" thumbnail />
                   </Col>
                   <Col xs={4} className="text-center mt-3 d-lg-none d-xl-none">
-                    <QRCode value={"https://identity.skillschain.org/" + props.username} size="128"/>
+                    <QRCode value={"https://identity.skillschain.org/" + props.username} size="64" />
                   </Col>
                 </Row>
               </Col>

@@ -13,6 +13,9 @@ function DefaultLayout(props) {
   const router = useRouter()
   const [isShieldInstalled, toggleShieldIsInstalled] = useState(false)
   const [isChrome, toggleIsChrome] = useState(true);
+
+  const [loginError, setLoginError] = useState(false)
+
   useEffect(() => {
     // Check if shield is installed
     if (!isShieldInstalled) {
@@ -33,6 +36,8 @@ function DefaultLayout(props) {
   }, [isShieldInstalled])
 
   const handleLogin = () => {
+
+    if (loginError) setLoginError(false)
     let request = {}
     request['query'] = 'shieldLogin'
     request['applicationId'] = 'identity'
@@ -41,9 +46,11 @@ function DefaultLayout(props) {
       if (response.status === 'SUCCESS') {
         Cookies.set('token', response.token)
         props.setUserSession(true)
+        router.push('/user')
       }
     })
     .catch((error) => {
+      setLoginError(true)
       console.log(error)
     })
   }
@@ -63,8 +70,8 @@ function DefaultLayout(props) {
   
   return (
     <>
-      <Container fluid>
-        <Topbar isUserSession={props.isUserSession} setUserSession={(session) => props.toggleSesion(session)} isShieldInstalled={isShieldInstalled} handleLogin={handleLogin} handleLogout={handleLogout} isChrome={isChrome} />
+      <Container>
+        <Topbar isUserSession={props.isUserSession} setUserSession={(session) => props.toggleSesion(session)} isShieldInstalled={isShieldInstalled} handleLogin={handleLogin} handleLogout={handleLogout} isChrome={isChrome} loginError={loginError} />
         <div>
           {props.children}
         </div>
