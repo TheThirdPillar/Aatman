@@ -56,6 +56,9 @@ function SkillCards(props) {
                 </Badge>
               )))}
             </Card.Text>
+            <Card.Footer>
+              Hourly Rate: {(props.skill.data.hourlyRate) ? props.skill.data.hourlyRate : 0} Rs/Hour
+            </Card.Footer>
           </Card.Body>
         </Card>
       </Col>

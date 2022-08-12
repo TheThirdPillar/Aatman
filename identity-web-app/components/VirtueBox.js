@@ -12,7 +12,7 @@ import { domain } from '../config/config'
 
 export default function VirtueBox(props) {
 
-    const virtues = ['honesty', 'hardwork', 'integrity', 'acceptance', 'assertiveness', 'authenticity', 'caring', 'courage', 'compassion', 'curiosity', 'empathy', 'perseverence', 'prudence']
+    const virtues = ['honesty', 'hardwork', 'integrity', 'acceptance', 'assertiveness', 'authenticity', 'caring', 'courage', 'compassion', 'curiosity', 'empathy', 'perseverence', 'prudence', 'self-respect', 'resilience']
 
     const handleSelect = (list) => {
         if (list.length > 0) {
