@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Badge from 'react-bootstrap/Badge'
+import InputGroup from 'react-bootstrap/InputGroup'
 import { AiFillCloseCircle } from 'react-icons/ai'
 
 import Toasts from './Toasts'
@@ -26,6 +27,7 @@ function SkillForm(props) {
         skillLevel: 0,
         proofOfWork: '',
         personalEndorsement: '',
+        hourlyRate: 0,
         ...props.formData
     })
 
@@ -133,6 +135,14 @@ function SkillForm(props) {
                 </Form.Group>
                 <Form.Group controlId="persoalEndorsement">
                     <Form.Control type='url' placeholder='Add youtube link for self endorsing skill' name="personalEndorsement" value={inputFields.personalEndorsement} onChange={(e) => handleUpdate(e.target.name, e.target.value)} required />
+                </Form.Group>
+                <Form.Group>
+                    <InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Text>Rs/Hour</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <Form.Control type='number' placeholder='Add hourly rate for your skill' name='hourlyRate' value={inputFields.hourlyRate} onChange={(e) => handleUpdate(e.target.name, e.target.value)} required />
+                    </InputGroup>
                 </Form.Group>
                 <Form.Group as={Row}>
                     <Col className="text-right">
