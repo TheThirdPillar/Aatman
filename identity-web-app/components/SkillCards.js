@@ -57,7 +57,7 @@ function SkillCards(props) {
               )))}
             </Card.Text>
             <Card.Footer>
-              Hourly Rate: {(props.skill.data.hourlyRate) ? props.skill.data.hourlyRate : 0} Rs/Hour
+              Hourly Rate: {(props.skill.data.hourlyRate) ? props.skill.data.hourlyRate : 0} USD ( $ ) / Hour
             </Card.Footer>
           </Card.Body>
         </Card>
